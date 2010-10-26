@@ -1,0 +1,76 @@
+[toc 2 right]
+
+Niveau 1
+========
+
+Niveau 2
+--------
+
+## Niveau 1
+### Niveau 2
+#### Niveau 3
+##### Niveau 4
+###### Niveau 5
+
+Si on le souhaite, on peut ajouter des # après le sous-titre. Leur nombre
+n'est pas important.
+
+### Niveau 3 ###
+
+Il est possible d'ajouter du texte après le sous titre, affiché en italique.
+Il doit être séparé du sous-titre par des # :
+
+##### Approche # 1200m, 2 à 3h
+### Sous-titre {#nom-de-l-ancre}
+
+## Mise en forme des caractères
+
+[b] texte en gras [/b]
+[i] texte en italique [/i]
+[u] texte souligné [/u]
+[i][u][b] texte en gras italique souligné [/b][/u][/i]
+[s] texte barré [/s]
+[q] texte cité [/q]
+[c] police à chasse fixe [/c]
+
+[acronym=info-bulle]texte avec info-bulle[/acronym]
+[color=#00AA33]texte en couleur[/color]
+[quote]Texte dans une boite de citation[/quote]
+
+[center]texte en un ou plusieurs paragraphes centré[/center]
+[right]texte en un ou plusieurs paragraphes aligné à droite[/right]
+
+### Images
+
+[img]123123123_123123123.jpg[/img] : image sans légende, positionnée à droite par défaut.
+[img=123123123_123123123.jpg]légende[/img] : image avec légende, positionnée à droite par défaut.
+[img=123123123_123123123.jpg|position]légende[/img] : image positionnée selon l'attribut situé après | :
+
+#### Liens
+
+lien interne: [[articles/107005/fr|Aiguille de Scolette]]
+[url=http://www.camptocamp.org/articles/107005/fr]lien externe[/url]
+[url]http://www.camptocamp.org/articles/107005/fr[/url]
+<http://www.camptocamp.org/>
+[email]nom@serveur.pouet[/email]
+
+#### Liste à puce
+
+* un item commence par une étoile
+- ou un moins
++ ou un plus
+
+1. premier item
+2. deuxième
+
+* premier niveau
+ * 1 espace avant l'étoile : 2ème niveau
+  * 2 espace : 3ème niveau
+  * encore
+ * on peut combiner les types de liste
+  1. liste numérotée
+  2. c'est pratique
+   1. sous liste numérotée
+    1. sous sous liste
+ * item
+
