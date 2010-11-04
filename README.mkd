@@ -3,6 +3,8 @@
 misc tools for camptocamp.org
 
 Contents:
+
 * CSS styles.
 * vim syntax file (as C2C uses a mix of BBcode and Markdown).
 * testing syntax file.
+* experimental image upload script

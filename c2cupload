@@ -1,0 +1,153 @@
+#!/bin/sh
+# upload images to Camptocamp.org
+
+## Global variables
+VERSION=0.1
+COMMAND=$(basename $0)
+DEBUG=
+
+# default image type (1=collabo / 2=perso)
+IMGTYPE=2
+# default image category (5=divers)
+IMGCAT=5
+
+# TODO
+# - multi-catégories
+# - vérification des prérequis
+# - redimenssionnement des photos
+
+print_help() {
+cat <<EOF
+NAME
+   $COMMAND -- upload images to Camptocamp.org
+
+SYNOPSIS
+   $COMMAND [-V | -h | -l]
+   $COMMAND [-p | -c] [-C CATEGORIE] url file1 name1 (file2 name2 ...)
+
+DESCRIPTION
+   mandatory arguments:
+      - url: url of the page on which the image must be uploaded
+      - file: path of the image to upload
+      - name: legend of the image
+
+OPTIONS
+   -h --help
+      Display a help screen and quit.
+   -l --list-cat
+      Display the list of categories.
+   -p --perso
+      set image type to 'personnelle'.
+   -c --collab
+      set image type to 'collaborative'.
+   -C --cat
+      set image categories
+
+AUTHOR
+   Saïmon <contact at saimon dot org>
+   Web page: http://saimon.org/
+
+REPORTING BUGS
+   Please report bugs to <contact at saimon dot org>
+
+COPYRIGHT
+   This is free software; see the source for copying conditions.  There is NO
+   warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+EOF
+}
+
+print_categories() { cat <<EOF
+Liste des catégories
+====================
+
+Pour l'instant, il n'est possible de sélectionner qu'une seule catégorie.
+
+NB: La sélection d'au moins une catégorie marquée d'un astérisque (*)
+fera apparaître la photo en page d'accueil.
+
+1: paysage *
+2: personnages
+3: action *
+4: tracé, schéma *
+5: divers, inclassable
+6: détail, zoom *
+7: trace, sentier *
+8: montée
+9: descente
+10: faune *
+11: flore *
+12: géologie *
+13: hébergement
+14: matériel
+15: couverture de livre
+EOF
+}
+
+connect (){
+   read -p "Username: " uname
+   stty_orig=`stty -g`
+   stty -echo
+   read -p "Password: " passw
+   stty $stty_orig
+   echo ""
+   echo ":: Connecting ..."
+   curl -s -D "$COOKIE" -d "login_name=${uname}&password=${passw}" \
+      "http://www.camptocamp.org/login" > /dev/null
+}
+
+
+uploadimage (){
+   echo ":: Upload $1"
+   referer="http://www.camptocamp.org/"
+
+   curl -e "$referer" -s -b "$COOKIE" \
+      -F "image_file[0]=@$4" \
+      -F "name[0]=$5" \
+      -F "image_type[0]=$2" \
+      -F "categories[0][]=$3" \
+      $1 > /dev/null
+}
+
+uploadall (){
+   # connection
+   COOKIE=$(mktemp)
+   connect || echo "Error: cannot create cookie file"
+
+   URL="$1"
+   shift
+
+   while [ $# -ge 1 ]
+   do
+      FILE="$1"
+      NAME="$2"
+      shift 2
+      uploadimage "$URL" $IMGTYPE $IMGCAT "$FILE" "$NAME"
+      [ -n "$DEBUG" ] && echo $FILE $NAME $IMGTYPE $IMGCAT $URL
+   done
+
+   #[ -e $COOKIE ] &&
+   rm "$COOKIE"
+}
+
+#------------------------------------------------------------------
+
+# Check for required argument
+[ $# -eq 0 ] && print_help && exit 0
+
+# Check for options
+while [ $# -ge 1 ]; do
+   case $1 in
+      -h | --help)      print_help;        exit 0;;
+      -l | --list-cat)  print_categories;  exit 0;;
+      -V | --version)   print_version;     exit 0;;
+      --debug)          DEBUG="--debug";;
+      -C | --cat)       shift;
+                        IMGCAT=$1;;
+      -p | --perso)     IMGTYPE=2;;
+      -c | --collab)    IMGTYPE=1;;
+      *) uploadall "$@"; exit 0;;
+   esac
+   shift
+done
+
+exit
