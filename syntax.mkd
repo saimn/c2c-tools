@@ -25,13 +25,48 @@ Il doit être séparé du sous-titre par des # :
 
 ## Mise en forme des caractères
 
-[b] texte en gras [/b]
-[i] texte en italique [/i]
-[u] texte souligné [/u]
+### markdown
+
+**gras**, __gras__, *italique*, _italique_, ~barré~,  ___souligné___
+
+*single asterisks*
+_single underscores_
+**double asterisks**
+__double underscores__
+un*frigging*believable
+\*this text is surrounded by literal asterisks\*
+
+inline code:
+
+Use the `printf()` function.
+Please don't use any `<blink>` tags.
+
+
+quote:
+
+> This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+> consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+> Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+
+> Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.
+
+> first level
+>
+> > nested quote
+
+code blocks:
+
+    This is a code block.
+    indent every line of the block by at least 4 spaces or 1 tab.
+    Markdown wraps a code block in both <pre> and <code> tags.
+
+
+### bbcode
+
+[b]gras[/b], [i]italique[/i], [u]souligné[/u],
 [i][u][b] texte en gras italique souligné [/b][/u][/i]
-[s] texte barré [/s]
-[q] texte cité [/q]
-[c] police à chasse fixe [/c]
+[s]barré[/s], [q]texte cité[/q], [c]police à chasse fixe[/c]
 
 [acronym=info-bulle]texte avec info-bulle[/acronym]
 [color=#00AA33]texte en couleur[/color]
@@ -42,16 +77,29 @@ Il doit être séparé du sous-titre par des # :
 
 ### Images
 
+![Alt text](/path/to/img.jpg)
+![Alt text](/path/to/img.jpg "Optional title")
+
 [img]123123123_123123123.jpg[/img] : image sans légende, positionnée à droite par défaut.
 [img=123123123_123123123.jpg]légende[/img] : image avec légende, positionnée à droite par défaut.
 [img=123123123_123123123.jpg|position]légende[/img] : image positionnée selon l'attribut situé après | :
 
 #### Liens
 
+automatique: <http://www.camptocamp.org/>
+
+markdown:
+This is [an example](http://example.com/ "Title") inline link.
+[This link](http://example.net/) has no title attribute.
+See my [About](/about/) page for details.
+This is [an example][id] reference-style link.
+[id]: http://example.com/  "Optional Title Here"
+mail: <address@example.com>
+
+bbcode:
 lien interne: [[articles/107005/fr|Aiguille de Scolette]]
 [url=http://www.camptocamp.org/articles/107005/fr]lien externe[/url]
 [url]http://www.camptocamp.org/articles/107005/fr[/url]
-<http://www.camptocamp.org/>
 [email]nom@serveur.pouet[/email]
 
 #### Liste à puce
