@@ -20,7 +20,10 @@ To use it with stylish, see <http://userstyles.org/users/15523>
 NB: C2C uses a mix of BBcode and Markdown.
 
 * testing syntax file.
-* emacs syntax file.
+* emacs syntax file:
+
+![emacs for c2c](http://saimon.org/public/c2c/emacs-c2c_m.jpg)
+
 * vim syntax file :
 
-![vim for c2c](https://github.com/saimn/c2c-tools/raw/master/img/gvim-c2c_m.jpg)
+![vim for c2c](http://saimon.org/public/c2c/gvim-c2c_m.jpg)
