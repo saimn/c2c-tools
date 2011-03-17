@@ -98,7 +98,7 @@ mail: <address@example.com>
 
 bbcode:
 lien interne: [[articles/107005/fr|Aiguille de Scolette]]
-[url=http://www.camptocamp.org/articles/107005/fr]lien externe[/url]
+[url=http://www.camptocamp.org/]lien externe[/url] et [url=http://www.camptocamp.org/]lien externe 2[/url]
 [url]http://www.camptocamp.org/articles/107005/fr[/url]
 [email]nom@serveur.pouet[/email]
 

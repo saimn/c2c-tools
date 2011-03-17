@@ -17,9 +17,10 @@ To use it with stylish, see <http://userstyles.org/users/15523>
 
 ## Syntax
 
+NB: C2C uses a mix of BBcode and Markdown.
+
 * testing syntax file.
-* vim syntax file (C2C uses a mix of BBcode and Markdown) :
+* emacs syntax file.
+* vim syntax file :
 
-![vim for c2c](img/gvim-c2c_m.jpg)
-
-
+![vim for c2c](https://github.com/saimn/c2c-tools/raw/master/img/gvim-c2c_m.jpg)
