@@ -1,10 +1,25 @@
 # C2C tools
 
-misc tools for camptocamp.org
+some tools for camptocamp.org
 
-Contents:
+## CSS styles
 
-* CSS styles.
-* vim syntax file (as C2C uses a mix of BBcode and Markdown).
+To use it with stylish, see <http://userstyles.org/users/15523>
+
+## Scripts
+
+* open new messages in tabs. see <http://userscripts.org/scripts/review/91138> to use it with greasemonkey.
+
+## Experiments
+
+* image upload script
+* statistics
+
+## Syntax
+
 * testing syntax file.
-* experimental image upload script
+* vim syntax file (C2C uses a mix of BBcode and Markdown) :
+
+![vim for c2c](img/gvim-c2c_m.jpg)
+
+
